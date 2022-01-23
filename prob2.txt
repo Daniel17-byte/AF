@@ -1,0 +1,31 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+#define MAX_SIZE 100
+
+ofstream fout("output.txt");
+
+/*
+ Citește n, min și max de la tastatură
+ Generează un șir aleatoriu de n elemente cu valori cuprinse intre min și max
+ Șirul trebuie să fie diferit la fiecare rulare a programului
+ Adaugă șirul în fișierul output.txt
+*/
+int main()
+{
+    int x,n,min,max,v[MAX_SIZE];
+    cin >> n >> min >> max;
+    srand(time(NULL));
+        for (int i = 0;i < n;i++) {
+            x = rand() % 100 + 1;
+            if (x >= min && x <= max)
+                v[i] = x;
+            else
+                i--;
+        }
+        for (int i = 0;i < n;i++) {
+            fout << v[i] << " ";
+        }
+}

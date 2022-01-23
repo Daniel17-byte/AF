@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+ifstream fin("input.txt");
+ofstream fout("output.txt");
+
+
+#define MAX_SIZE 10
+
+/*
+ Declară un sir v de lungime MAX_SIZE (o constantă definită de tine)
+ Citește n de la tastatură
+ Deschide fișierul input.txt, citește n numere din el și salvează-le în v
+ Salvează cele n numere în fișierul output.txt în ordine inversă 
+*/
+int main()
+{
+    int n,x,v[MAX_SIZE];
+    cin>> n;
+    for (int i = 0; i < n; i++) {
+        fin >> x;
+        v[i] = x;
+    }
+    for (int i = n-1;i >= 0;i--)
+        fout << v[i];
+}
